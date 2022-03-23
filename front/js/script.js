@@ -3,8 +3,10 @@ const url =`http://localhost:3000/api/products`;
 // Sélection la section pare son id
 const dom = { items: document.querySelector("#items"),};
 
-fetch(url).then((Response) => // récupérer les données
-Response.json().then((product) => {
+// récupérer les données
+fetch(url)
+.then((Response) => Response.json() // transformer en json
+.then((product) => {
 //La méthode forEach()permet d'exécuter une fonction donnée sur chaque élément du tableau.
 // j'aurais pu tout aussi bien utiliser une boucle for
 product.forEach((product) => {
