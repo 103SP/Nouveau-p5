@@ -26,5 +26,8 @@ dom.title.innerHTML = product.name;
 dom.price.innerHTML = product.price;
 dom.description.innerHTML = product.description;
 dom.image.innerHTML = `<img src="${product.imageUrl}" alt="${product.altTxt}">`;
-
+//Utilisation de la méthode forEach pour afficher mais color
+product.colors.forEach((color) => {
+dom.colors.innerHTML += `<option value="${color}">${color}</option>`;
+});
 });
