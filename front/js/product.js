@@ -5,6 +5,7 @@ const queryString = window.location.search;
 let searchParams = new URLSearchParams(queryString);
 const id = searchParams.get("id");
 
+
 let url = `http://localhost:3000/api/products/${id}`;
 //Construction du DOM
 const dom = {
@@ -31,3 +32,40 @@ product.colors.forEach((color) => {
 dom.colors.innerHTML += `<option value="${color}">${color}</option>`;
 });
 });
+///////////ajouter produit////////
+//let panier =[]
+
+const addProduct = (event) => {
+  let produitEnregistre = JSON.parse(localStorage.getItem("item"));
+  //console.log(id,colors.value,quantiter.value);
+  let item = {
+    id: id, 
+    quantity: parseInt (quantity.value), 
+    color: colors.value,
+  }
+  
+  //console.log(panier);
+  
+  if(produitEnregistre){
+    alert("produitEnregistre");
+    let index = produitEnregistre.findIndex(elem => elem.id ===item.id && elem.color === item.color);
+    if(index === -1){
+      alert("produitEnregistre element non trover");
+      produitEnregistre.push (item); 
+    }
+    else {
+      produitEnregistre[index].quantity = produitEnregistre[index].quantity + item.quantity;
+    }
+    localStorage.setItem("item",JSON.stringify(produitEnregistre));
+    console.log(produitEnregistre);
+  }
+  else{
+    produitEnregistre = [];
+    produitEnregistre.push(item);
+    localStorage.setItem("item",JSON.stringify(produitEnregistre));
+    console.log(produitEnregistre);
+  }
+  }
+  addToCart.addEventListener('click',addProduct)
+  
+  
