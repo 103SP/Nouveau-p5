@@ -47,10 +47,10 @@ const addProduct = (event) => {
   //console.log(panier);
   
   if(produitEnregistre){
-    alert("produitEnregistre");
+    //alert("produitEnregistre");
     let index = produitEnregistre.findIndex(elem => elem.id ===item.id && elem.color === item.color);
     if(index === -1){
-      alert("produitEnregistre element non trover");
+      //alert("produitEnregistre element non trover");
       produitEnregistre.push (item); 
     }
     else {

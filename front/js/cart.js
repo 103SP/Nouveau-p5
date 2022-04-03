@@ -57,30 +57,40 @@ cartItems.forEach((item) => {
 let deleteItem = document.querySelectorAll('.deleteItem');
 
       for (let i = 0; i < deleteItem.length; i++) {
-
+        
         deleteItem[i].addEventListener('click', (event) => {
         event.preventDefault();
+        console.log('preventDefault');
          event.target.closest('article.cart__item').remove(item);
          console.log(deleteItem[i]);         
 
-       
-    
-        cartItems.filter(
+        });
+      }
+
+       /* cartItems.filter(
               (elem) => elem.id !== item.id || elem.color !== item.color
           );
           alert("cartItems.filter passer");
-  //        console.log(cartItems);
-localStorage.removeItem(item);
-localStorage.setItem('cartItems', JSON.stringify(item));
+  //        console.log(cartItems);*/
+  function isEven(value)  { 
+    return ((value.id != item.id ) || (value.color != item.color)); 
+  } 
+  //alert(item.id);
+  //alert(item.color);
+  console.log();
+  localStorage.setItem("item", JSON.stringify(cartItems.filter(isEven)));
+  
+//localStorage.setItem('item', JSON.stringify(cartItems));
 
 //localStorage.setItem("cartItems", JSON.stringify(cartItems));
 //         return cartItems;
 //          localStorage.setItem("item", JSON.stringify(cartItems));
       
-       
-        });
-      }
+//myArray.splice (myArray.indexOf('c'), 2)
 
+//cartItems.splice (cartItems.indexOf(item), 2):
+       
+      
     });
 });
 
