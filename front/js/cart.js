@@ -61,18 +61,17 @@ let deleteItem = document.querySelectorAll('.deleteItem');
         deleteItem[i].addEventListener('click', (event) => {
         event.preventDefault();
         console.log('preventDefault');
-         event.target.closest('article.cart__item').remove(item);
+         event.target.closest('article.cart__item').remove();
          console.log(deleteItem[i]);         
 
-        });
-      }
+      
 
-       /* cartItems.filter(
-              (elem) => elem.id !== item.id || elem.color !== item.color
-          );
-          alert("cartItems.filter passer");
-  //        console.log(cartItems);*/
-  function isEven(value)  { 
+        //cartItems.filter(
+              //(elem) => elem.id !== item.id || elem.color !== item.color
+          //);
+          //alert("cartItems.filter passer");
+  //        console.log(cartItems);
+function isEven(value)  { 
     return ((value.id != item.id ) || (value.color != item.color)); 
   } 
   //alert(item.id);
@@ -89,8 +88,11 @@ let deleteItem = document.querySelectorAll('.deleteItem');
 //myArray.splice (myArray.indexOf('c'), 2)
 
 //cartItems.splice (cartItems.indexOf(item), 2):
-       
-      
+//https://www.w3docs.com/snippets/javascript/how-to-remove-an-element-from-an-array-in-javascript.html      
+     // let itemQuantity = document.querySelector('.itemQuantity');
+      //console.log(itemQuantity);
+    });
+  }
     });
 });
 
