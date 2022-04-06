@@ -62,6 +62,7 @@ let deleteItem = document.querySelectorAll('.deleteItem');
         event.preventDefault();
         console.log('preventDefault');
          event.target.closest('article.cart__item').remove();
+         location.reload(true);
          console.log(deleteItem[i]);         
 
       
