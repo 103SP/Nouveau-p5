@@ -40,7 +40,7 @@ for (let item of saveCart.get()) {
       </div>
   </article>`.trim();
   total.quantity += item.quantity;
-  total.price += product.price;
+  total.price += (product.price * item.quantity);
 
 
   /* 5-Éffacer un produit du panier au click */
@@ -54,6 +54,6 @@ for (let item of saveCart.get()) {
   });
   dom.items.appendChild(div.firstChild);
   dom.totalQuantity.innerHTML = total.quantity
-  dom.totalPrice.innerHTML = total.price * item.quantity;
-  console.log(item.quantity );
+  dom.totalPrice.innerHTML = total.price 
+  console.log(item.quantity);
 }

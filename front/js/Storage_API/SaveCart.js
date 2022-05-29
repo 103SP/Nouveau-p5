@@ -40,22 +40,7 @@ function setQuantity(item, quantity) {
   }
   set(cart);
 }
-function getNumber() {
-  let cart = get();
-  let price = 0;
-  for (let product of cart) {
-    price += product.quantity 
-  }
-  return price;
-}
-function getTotalPrice(){
-let cart = get();
-  let price = 0;
-  for (let product of cart) {
-    total.price += product.quantity * product.price;
-  }
-  return price;
-}
+
 
 function clear() {
   set([]);
@@ -68,8 +53,7 @@ const SaveCart = {
   setQuantity: setQuantity,
   remove: remove,
   clear: clear,
-  getNumber: getNumber,
-  getTotalPrice: getTotalPrice,
+
 };
 
 export default SaveCart;
