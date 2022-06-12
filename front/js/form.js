@@ -116,3 +116,37 @@ function getForm() {
     };
   }
   getForm();
+
+  //Envoi des informations client au localstorage
+
+  const commander = document.getElementById("order");
+  
+  //Ecouter le panier
+  commander.addEventListener("click", (event)=>{
+    
+      //Récupération des coordonnées du formulaire client
+      let contact = {
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value,
+        address: document.getElementById("address").value,
+        city: document.getElementById("city").value,
+        email: document.getElementById("email").value,
+      };
+
+console.log(contact);
+      //Construction d'un array depuis le local storage
+   localStorage.setItem("contact", JSON.stringify(contact));
+ 
+   /*localStorage.setItem("lastName", document.querySelector("#lastName").value);
+   localStorage.setItem("address", document.querySelector("#address").value);
+   localStorage.setItem("city", document.querySelector("#city").value);
+   localStorage.setItem("email", document.querySelector("#email").value);
+   console.log(document.querySelector("#firstName"));*/
+
+   /*document.querySelector("firstName").innerHTML = localStorage.getItem("firstName");
+   document.querySelector("lastName").innerHTML = localStorage.getItem("lastName");
+   document.querySelector("address").innerHTML = localStorage.getItem("address");
+   document.querySelector("city").innerHTML = localStorage.getItem("city");
+   document.querySelector("email").innerHTML = localStorage.getItem("email");*/
+   e.preventDefault();
+      })
