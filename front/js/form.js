@@ -26,7 +26,7 @@ const validFirstName = function(inputFirstName){
 };
 
 */
-function getForm() {
+
     let form = document.querySelector('.cart__order__form');
     //https://www3.ntu.edu.sg/home/ehchua/programming/webprogramming/JavaScript_Examples.html
     //Validation selon une expression régulière Regex
@@ -105,7 +105,7 @@ function getForm() {
   
     const validEmail = function (inputEmail) {
       let emailErrorMsg = inputEmail.nextElementSibling;
-      return true;
+  
   
       if (emailRegExp.test(inputEmail.value)) {
         emailErrorMsg.innerHTML = '';
@@ -114,14 +114,14 @@ function getForm() {
         return false;
       }
     };
-  }
-  getForm();
+  
+
 
   //Envoi des informations client au localstorage
 
   const commander = document.getElementById("order");
   
-  //Ecouter le panier
+  
   commander.addEventListener("click", (event)=>{
     
       //Récupération des coordonnées du formulaire client
@@ -133,20 +133,29 @@ function getForm() {
         email: document.getElementById("email").value,
       };
 
-console.log(contact);
+
       //Construction d'un array depuis le local storage
    localStorage.setItem("contact", JSON.stringify(contact));
- 
-   /*localStorage.setItem("lastName", document.querySelector("#lastName").value);
-   localStorage.setItem("address", document.querySelector("#address").value);
-   localStorage.setItem("city", document.querySelector("#city").value);
-   localStorage.setItem("email", document.querySelector("#email").value);
-   console.log(document.querySelector("#firstName"));*/
 
-   /*document.querySelector("firstName").innerHTML = localStorage.getItem("firstName");
-   document.querySelector("lastName").innerHTML = localStorage.getItem("lastName");
-   document.querySelector("address").innerHTML = localStorage.getItem("address");
-   document.querySelector("city").innerHTML = localStorage.getItem("city");
-   document.querySelector("email").innerHTML = localStorage.getItem("email");*/
-   e.preventDefault();
+   const options = {
+    method: 'POST',
+    body: JSON.stringify(order),
+    headers: {
+        'Accept': 'application/json', 
+        "Content-Type": "application/json" 
+    },
+};
+fetch("http://localhost:3000/api/products/order", options)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            //localStorage.clear();
+            
+            //redirection page confirmation
+            document.location.href = "confirmation.html";
+        })
+        .catch((err) => {
+            alert ("Problème avec fetch : " + err.message);
+        });
+
       })
