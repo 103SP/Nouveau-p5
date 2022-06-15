@@ -133,8 +133,6 @@ const validFirstName = function(inputFirstName){
         email: document.getElementById("email").value,
       };
 
-
-      //Construction d'un array depuis le local storage
    localStorage.setItem("contact", JSON.stringify(contact));
 
    const options = {
