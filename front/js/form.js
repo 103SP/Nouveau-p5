@@ -147,8 +147,8 @@ fetch("http://localhost:3000/api/products/order", options)
         .then((response) => response.json())
         .then((data) => {
             console.log(data);
-            localStorage.clear();
-            
+
+            localStorage.setItem("orderId", data.orderId);
             //redirection page confirmation
             document.location.href = "confirmation.html";
         })
